@@ -17,6 +17,10 @@ sudo netstat -auntp; ss -auntp
 sudo ls -latr /var/spool/cron
 tail -n 1000 <files in /var/spool/cron/>
 df
+for user in $(cut -f1 -d: /etc/passwd); do echo "###### $user crontab is:"; cat /var/spool/cron/{crontabs/$user,$user} 2>/dev/null; done
+cat /etc/crontab
+ls -la /etc/cron.*
+
 
 ls -latr /var/*/*acc*
 ls -latr /var/*log*/
