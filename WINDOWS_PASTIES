@@ -29,3 +29,25 @@ wevtutil qe security /c:25 /rd:true /f:text (whatever has updated from previous 
 netstat /anob
 query user
 tasklist /V
+
+***Privileged Users***
+query user        display RDP/local logins
+netstat /anob     connections
+tasklist /V       privileged user running
+wmic             
+
+***Security Products***
+tasklist /V
+schtasks /Query /V
+dir /o:d /t:w c:\windows\temp
+dir /o:d /t:w c:\windows\
+dir /o:d /t:w c:\windows\system32
+dir /o:d /t:w c:\windows\system32\winevt\logs
+dir /0:d /t:w "%appdata%\microsoft\windows\start menu\programs\startup"
+reg query hklm\software\microsoft\windows\currentversion\run
+reg query hklm\software\microsoft\windows\currentversion\runonce
+reg query hklm\software
+
+
+
+
