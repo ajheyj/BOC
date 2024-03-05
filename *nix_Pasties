@@ -141,7 +141,24 @@ iptables -t nat -A POSTROUTING -p <proto> –dport <port> -j SNAT –to-source <
 iptables  -t nat -A POSTROUTING -p <proto> -dport <port> -j 
 iptables -t nat -A POSTROUTING -p tcp –dport 22 -j MASQUERADE
 sysctl net.ipv4.ip_forward
-
+***ANALYST SURVEY***
+mount
+lsmod
+uname -a
+ls -latr /etc/*release*
+cat /etc/*release*
+cat /proc/cpuinfo
+services --status-all || systemctl status --no-pager (depending on systemd vs not systemd)
+cat /proc/meminfo
+cat /etc/shadow
+cat /etc/passwd
+lspci -vv
+arp -a
+lsusb
+lsblk
+fdisk -l
+free -m
+dmidecode -t bios
 
 
 
