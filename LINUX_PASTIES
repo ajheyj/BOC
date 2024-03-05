@@ -6,8 +6,8 @@ uname -a
 
 ls -lart /
 ls -latr /tmp 
-ls -latrR .
-ls -latrR ..
+ls -latr .
+ls -latr ..
 sudo ls -latr /root
 
 ps -elfH
