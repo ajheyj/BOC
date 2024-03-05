@@ -23,7 +23,7 @@ ls -latr /var/*log*/
 sudo ls -latr /var/log/*
 ls -la /etc/*syslog*
 
-find / \(-path /proc -prine -o -path /sys -prune \) -o -mmin -<duration in minutes since initial connection> -type f -print0 | xargs -0 ls -latr
+find / \(-path /proc -prune -o -path /sys -prune \) -o -mmin -<duration in minutes since initial connection> -type f -print0 | xargs -0 ls -latr
 
 sestatus; getenforce
 
