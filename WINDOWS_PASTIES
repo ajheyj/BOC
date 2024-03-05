@@ -48,6 +48,9 @@ reg query hklm\software\microsoft\windows\currentversion\run
 reg query hklm\software\microsoft\windows\currentversion\runonce
 reg query hklm\software
 
-
+***Abnormal Logging***
+auditpol
+wevtutil qe security /C:25 /rd:true /f:text
+POWERSHELL-> Get-EventLog system -newest 3 | Format-List
 
 
