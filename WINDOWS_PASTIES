@@ -7,7 +7,7 @@ auditpol /get /category:*
 ipconfig /all
 netstat /anob
 netsh advfirewall show allprofiles
-set share
+net share
 reg query hklm\software\microsoft\windows\currentversion\run
 reg query hklm\software\microsoft\windows\currentversion\runonce
 reg query hklm\software
