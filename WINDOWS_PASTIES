@@ -60,7 +60,8 @@ netsh interface ip show dns
 netsh interface portproxy show all
 netsh interface portproxy add v4tov4 listenport=12345 listenaddress=192.168.0.221 connectport=54321 connectaddress=192.168.0.98 protocol=tcp
 netsh interface portproxy delete v4tov4 listenport=12345 listenaddress=192.168.0.221
-
+***SCP***
+scp -P <####> -r -T -o ControlPath=/tmp/T# <user>@<IP>:'"C:<file path>"' .
 ***SURVEY COMMANDS***
 systeminfo
 net user
