@@ -3,7 +3,7 @@ date /t
 time /t
 query user
 tasklist /V
-auditpol /get/category:*
+auditpol /get /category:*
 ipconfig /all
 netstat /anob
 netsh advfirewall show allprofiles
