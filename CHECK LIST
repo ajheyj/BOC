@@ -18,8 +18,10 @@ Prepare Operation Environment
   Create opnotes file
     touch notes_<dd-mm-yy>_<op#>
     cat /root/notes/template > notes_<dd-mm-yy>_<op#>
+    vim notes_<dd-mm-yy>_<op#>
   Create a NSDB file 
     touch NSDB_<dd-mm-yy>_<op#>
+    vim NDSB_<dd-mm-yy>_<op#>
   Open TARGET Terminals 1 per target and 1 comand window
   Connect to OpStation
     ssh -S /tmp/Kali d 
