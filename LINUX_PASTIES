@@ -152,13 +152,13 @@ uname -a
 ls -latr /etc/*release*
 cat /etc/*release*
 cat /proc/cpuinfo
-services --status-all || systemctl status --no-pager (depending on systemd vs not systemd)
+services --status-all OR systemctl status --no-pager (depending on systemd vs not systemd)
 cat /proc/meminfo
-cat /etc/shadow
+sudo cat /etc/shadow
 cat /etc/passwd
-lspci -vv
-arp -a
-lsusb
+sudo lspci -vv
+sudo arp -a
+sudo lsusb
 lsblk
 fdisk -l
 free -m
