@@ -160,9 +160,9 @@ sudo lspci -vv
 sudo arp -a
 sudo lsusb
 lsblk
-fdisk -l
+sudo fdisk -l
 free -m
-dmidecode -t bios
+sudo dmidecode -t bios
 
 
 
