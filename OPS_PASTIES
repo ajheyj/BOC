@@ -1,16 +1,16 @@
 ssh -MS /tmp/Kali root@10.50.26.114 
 						FOR OPS NOTES/NDSB notes
 ssh -S /tmp/Kali d 
-mkdir student2_06-MAR-24_HH09
-cd student2_06-MAR-24_HH09
-touch notes_06-MAR-24_HH09
-cat /root/notes/template > notes_06-MAR-24_HH09
-touch NSDB_06-MAR-24_HH09
-vim notes_06-MAR-24_HH09
-vim NSDB_06-MAR-24_HH09
+mkdir student2_07-MAR-24_HH10
+cd student2_07-MAR-24_HH10
+touch notes_07-MAR-24_HH10
+cat /root/notes/template > notes_07-MAR-24_HH10
+touch NSDB_07-MAR-24_HH10
+vim notes_07-MAR-24_HH10
+vim NSDB_07-MAR-24_HH10
 						FOR OPS TERMINALS
 ssh -S /tmp/Kali d 
-cd student2_06-MAR-24_HH09
+cd student2_07-MAR-24_HH10
 script -af termscreen.$$
 						FOR MASTER
 ssh -MS /tmp/T# student2@IP
