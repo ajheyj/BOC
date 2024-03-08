@@ -41,7 +41,7 @@ ls -latr /tmp
 ps -elf
 netstat -lptn
 ls -latr /var/log
-find / \(-path /proc -prune -o -path /sys -prune \) -o -mmin -<your minutes on target> -type f -print0 | xargs -0 ls -latr
+sudo find / \( -path /proc -prune -o -path /sys -prune \) -o -mmin -<your minutes on target> -type f -print0 | sudo xargs -0 ls -latr
 
 
 ***Privileged Users***
