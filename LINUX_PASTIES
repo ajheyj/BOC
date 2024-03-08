@@ -1,4 +1,5 @@
 ***VETTING***
+ifconfig -a; ip addr
 
 w 
 date; date -u
@@ -11,7 +12,6 @@ ls -latr ..
 sudo ls -latr /root
 
 ps -elfH
-ifconfig -a; ip addr
 sudo netstat -auntp; ss -auntp
 
 sudo ls -latr /var/spool/cron
@@ -142,7 +142,7 @@ curl -A "Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) Gecko/20100401
 proxychains nmap <ip> -D 9050
 ***IPTables***
 lsmod | grep ip		shows if IPTables is loaded or not
-iptables -t nat -L
+sudo iptables -t nat -L
 iptables -t nat -A PREROUTING -p <proto> --dport <port> -j DNAT --to-destination <ip:port> 
 iptables -t nat -A POSTROUTING -p <proto> –dport <port> -j SNAT –to-source <ip:port>
 iptables  -t nat -A POSTROUTING -p <proto> -dport <port> -j 
