@@ -95,10 +95,10 @@ rm -rf /tmp/cron
 		-audit.log-
 service auditd stop
 grep -n ‘<ip address,pic,time’ /var/log/audit/audit.log 
-wc -l /var/log/audit/audit.log
+sudo wc -l /var/log/audit/audit.log
 head -n 38 /var/log/audit/audit.log > /tmp/aud.log (where X is the line number before your entries start)
 wc -l /tmp/aud.log (should be X lines)
-tail /tmp/aud.log
+sudo tail /tmp/aud.log
 date -d @epoch-time-of-last-entry 1476342061.290
 cat /tmp/aud.log > /var/log/audit/audit.log
 chmod 0600 /var/log/audit/audit.log (or whatever the preexisting privs were)
