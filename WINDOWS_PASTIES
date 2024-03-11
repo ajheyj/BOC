@@ -84,3 +84,33 @@ wmic product get Caption, InstallDate, Vendor
 wmic useraccount where "LocalAccount='TRUE'" get Caption, Disabled, Domain, Lockout, PasswordExpires, SID, Status
 
 
+***Additional Commands***
+ver
+wmic os get osarchitecture
+systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"
+hostname
+whoami
+set computername
+arp -a
+netsh advfirewall show currentprofile
+netsh advfirewall firewall show rule name=all
+netsh firewall show state
+netsh firewall show config
+sc query windefend
+tasklist /SVC
+set userdomain
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon"  SHOWS PROCESSES TO START ON LOGIN
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon" /v LastUsedUsername
+schtasks /fo list
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+wmic qfe
+wmic qfe get Caption, Description, HotFixID, InstalledOn
+wmic product get name, version, vendor
+wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr /i /v "c:\windows"
+findstr /si password *.txt
+findstr /si password *.xml
+findstr /si password *.ini
+dir /s *pass* == *cred* == *vnc* == *.config*
+findstr /spin "password" *.*
+
