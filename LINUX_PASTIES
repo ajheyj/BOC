@@ -39,7 +39,7 @@ sudo cat ~/.bash_history
 w 
 ls -latr /tmp
 ps -elfH
-netstat -lptn
+sudo netstat -lptn
 ls -latr /var/log
 sudo find / \( -path /proc -prune -o -path /sys -prune \) -o -mmin -<your minutes on target> -type f -print0 | sudo xargs -0 ls -latr
 
