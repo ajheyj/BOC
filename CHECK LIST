@@ -14,16 +14,15 @@ Prepare Operation Environment
   Connect to OpStation
     ssh -MS /tmp/Kali root@10.50.26.114 
   Create STUDENT DIRECTORY
-    mkdir student02_<dd-mm-yy>_<op#>
+    mkdir student2_<dd-mm-yy>_<op#>
   cd into STUDENT DIRECTORY
-    cd student02_<dd-mm-yy>_<op#>
+    cd student2_<dd-mm-yy>_<op#>
   Create opnotes file
-    touch notes_<dd-mm-yy>_<op#>
-    cat /root/notes/template > notes_<dd-mm-yy>_<op#>
-    vim notes_<dd-mm-yy>_<op#>
+    touch notes_<dd-mm-yy>
+    cat /root/notes/template > notes_<dd-mm-yy>
+    vim notes_<dd-mm-yy>
   Create a NSDB file 
-    touch NSDB_<dd-mm-yy>_<op#>
-    vim NDSB_<dd-mm-yy>_<op#>
+    vim NDSB_<dd-mm-yy>
   Open TARGET Terminals 1 per target and 1 comand window
   Connect to OpStation
     ssh -S /tmp/Kali d 
