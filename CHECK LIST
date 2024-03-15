@@ -14,19 +14,19 @@ Prepare Operation Environment
   Connect to OpStation
     ssh -MS /tmp/Kali root@10.50.26.114 
   Create STUDENT DIRECTORY
-    mkdir student2_14-03-24_DR04
+    mkdir student2_15-03-24_DR05
   cd into STUDENT DIRECTORY
-    cd student2_14-03-24_DR04
+    cd student2_15-03-24_DR05
   Create opnotes file
-    touch notes_14-03-24
-    cat /root/notes/template > notes_14-03-24
-    vim notes_14-03-24
+    touch notes_15-03-24
+    cat /root/notes/template > notes_15-03-24
+    vim notes_15-03-24
   Create a NSDB file 
-    vim NDSB_14-03-24
+    vim NDSB_15-03-24
   Open TARGET Terminals 1 per target and 1 comand window
   Connect to OpStation
     ssh -S /tmp/Kali d 
-    cd student2_14-03-24_DR04
+    cd student2_15-03-24_DR05
   Script TARGET Terminals
     script -af termscreen.$$
 OPERATIONS
