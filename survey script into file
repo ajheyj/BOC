@@ -1,0 +1,3 @@
+ssh -S /tmp/T# d "survey" >> survey_<targetIP>.txt
+
+
