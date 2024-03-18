@@ -50,7 +50,7 @@ w			who is logged in, how long, how
 netstat -auntp		any connections associated with their session
 ps -elf		networked proccess associated with session/PID
 last			access pattern of life
-cat /etc/sudoers	who can sudo
+sudo cat /etc/sudoers	who can sudo
 cat /etc/group		what groups are what number
 groups <username>	what groups the user is apart of
 cat <user>/.bash_history
