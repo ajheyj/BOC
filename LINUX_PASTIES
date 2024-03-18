@@ -2,6 +2,7 @@
 ifconfig -a; ip addr
 
 w 
+who
 date; date -u
 uname -a
 
