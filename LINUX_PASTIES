@@ -13,7 +13,7 @@ ls -latr ..
 sudo ls -latr /root
 
 ps -elfH
-sudo netstat -auntp; ss -auntp
+sudo netstat -auntp; sudo ss -auntp
 
 sudo ls -latr /var/spool/cron
 tail -n 1000 <files in /var/spool/cron/>
