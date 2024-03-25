@@ -22,6 +22,9 @@ netstat /anob
 query user
 tasklist /V
 
+wmic service get DisplayName, PathName, StartName
+
+
 ***Before Disconnect***
 dir /o:d /t:w c:\windows\temp
 dir /o:d /t:w c:\windows\system32\winevt\logs
