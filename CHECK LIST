@@ -14,7 +14,7 @@ Prepare Operation Environment
   Connect to OpStation
     ssh -MS /tmp/Kali root@10.50.26.114 
   Create STUDENT DIRECTORY
-    mkdir student2_25-03-24_B01
+    mkdir student2_25-03-24_BB01
   cd into STUDENT DIRECTORY
     cd student2_25-03-24_BB01
   Create opnotes file
