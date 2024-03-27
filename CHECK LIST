@@ -26,7 +26,7 @@ Prepare Operation Environment
   Open TARGET Terminals 1 per target and 1 comand window
   Connect to OpStation
     ssh -S /tmp/Kali d 
-    cd student2_27-03-24_BB02
+    cd student2_27-03-24_BB03
   Script TARGET Terminals
     script -af termscreen.$$
 OPERATIONS
